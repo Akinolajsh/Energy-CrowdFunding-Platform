@@ -2,7 +2,9 @@ import React from 'react'
 
 const Testimony = () => {
   return (
-    <div>Testimony</div>
+    <div>
+      
+    </div>
   )
 }
 
