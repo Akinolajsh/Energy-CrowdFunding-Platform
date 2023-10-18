@@ -58,17 +58,17 @@ const Profile = () => {
   return (
     <div className="w-full h-[100vh] flex p-[10px] justify-center ">
       <form
-        className="w-[400px] min-h-[100px] shadow-lg p-2"
+        className="w-[400px] min-h-[50px] shadow-lg p-2"
         onSubmit={onSubmit}
       >
         <div className="text-[17px] font-semibold rounded-md text-center mb-3">
           My Information
         </div>
-        <div className="flex flex-col items-center relative mb-[10px]">
+        <div className="flex flex-col items-center relative mb-[80px]">
           <img
             src={image}
             alt=""
-            className="w-[80px] h-[80px] rounded-full border object-cover"
+            className="w-[80px] h-[80px] rounded-full border object-cover absolute"
           />
           <input
             type="file"
