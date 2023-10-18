@@ -43,4 +43,8 @@ export const mainRoute= createBrowserRouter([
         path: "/category",
         element: <Category/>
     },
+    {
+        path: "/profile",
+        element: <Profile/>
+    },
 ])
