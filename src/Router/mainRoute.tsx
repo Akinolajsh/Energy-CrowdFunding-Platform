@@ -7,6 +7,7 @@ import Resetpassword from "../Pages/Auth/ResetPassword"
 import ChangePassword from "../Pages/Auth/ChangePassword"
 import Testimony from "../Pages/Home/Testimony"
 import Category from "../Pages/Home/Category"
+import Profile from "../Pages/Home/Profile"
 
 export const mainRoute= createBrowserRouter([
     {
