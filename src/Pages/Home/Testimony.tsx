@@ -18,7 +18,7 @@ const Testimony = () => {
       </div>
       <div className="bg-yellow-00 w-[64%] h-full  flex-wrap small:full meduim:justify-center">
         <div className="w-[780px] h-[520px]  mx-[30px] flex flex-wrap small:w-[620px]  relative ">
-          <div className=" h-[290px] w-[331px]border absolute bottom-12 left-[220px] bg-slate-100 -z-30 small:hidden"></div>
+          <div className=" h-[290px] w-[330px]border absolute bottom-12 left-[220px] bg-slate-100 -z-30 small:hidden"></div>
           <div className="w-[330px] h-[290px] border m-7  p-4 shadow-md ">
             <div className="flex p-4 text-[17px]">
               <div className="w-[50px] h-[50px] rounded-[50%] border mr-4"></div>
