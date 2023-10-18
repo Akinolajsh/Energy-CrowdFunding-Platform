@@ -6,6 +6,7 @@ import Login from "../Pages/Auth/Login"
 import Resetpassword from "../Pages/Auth/ResetPassword"
 import ChangePassword from "../Pages/Auth/ChangePassword"
 import Testimony from "../Pages/Home/Testimony"
+import Category from "../Pages/Home/Category"
 
 export const mainRoute= createBrowserRouter([
     {
@@ -37,5 +38,9 @@ export const mainRoute= createBrowserRouter([
     {
         path: "/testimony",
         element: <Testimony/>
+    },
+    {
+        path: "/category",
+        element: <Category/>
     },
 ])

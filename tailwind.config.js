@@ -9,6 +9,7 @@ export default {
       screens:{
         small: {max: "768px"},
         meduim: {max: "320px"},
+        large: {max: "1024px"},
       }
     },
   },
