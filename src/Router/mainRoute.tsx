@@ -5,6 +5,7 @@ import Register from "../Pages/Auth/Register"
 import Login from "../Pages/Auth/Login"
 import Resetpassword from "../Pages/Auth/ResetPassword"
 import ChangePassword from "../Pages/Auth/ChangePassword"
+import Testimony from "../Pages/Home/Testimony"
 
 export const mainRoute= createBrowserRouter([
     {
@@ -32,5 +33,9 @@ export const mainRoute= createBrowserRouter([
     {
         path: "/change-password",
         element: <ChangePassword/>
+    },
+    {
+        path: "/testimony",
+        element: <Testimony/>
     },
 ])
