@@ -72,7 +72,7 @@ const Campaign = () => {
   });
 
   return (
-    <div className="h-full w-full flex justify-between  p-5 smallTab:flex-col">
+    <div className="h-full w-full flex justify-between  p-5 smallTab:flex-col pt-[90px]">
       <div className="w-[45%] h-[550px] smallTab:h-[320px] flex flex-col smallTab:w-full ">
         <div
           className="h-[400px] smallTab:h-[250px] w-full border overflow-hidden flex justify-center items-center"
