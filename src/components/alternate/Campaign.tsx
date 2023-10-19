@@ -98,7 +98,7 @@ const Campaign = () => {
           <option value="Biomass Energy">Biomass Energy</option>
           <option value="Hydroelectric Power">Hydroelectric Power</option>
           <option value="Hydropower">Hydropower</option>
-        </select>dfsdf
+        </select>
       </div>
       <form
         className="h-[550px] w-[48%] border p-3 smallTab:flex smallTab:flex-col smallTab:items-center smallTab:w-full"

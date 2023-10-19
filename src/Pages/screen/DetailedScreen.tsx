@@ -5,7 +5,7 @@ import {
   AiFillLinkedin,
 } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
-import { HiLightBulb } from "react-icons/hi";
+
 
 const DetailedScreen = () => {
   return (
