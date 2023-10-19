@@ -8,6 +8,7 @@ import ChangePassword from "../Pages/Auth/ChangePassword";
 import Testimony from "../Pages/Home/Testimony";
 import Category from "../Pages/Home/Category";
 import MessagePage from "../Pages/screen/MessagePage";
+import AlternatePage from "../Pages/screen/AlternatePage";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const mainRoute = createBrowserRouter([
         element: <HomeScreen />,
       },
     ],
+  },
+  {
+    path: "/alternate",
+    element: <AlternatePage />,
   },
   {
     path: "/register",

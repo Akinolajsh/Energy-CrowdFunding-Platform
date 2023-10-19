@@ -3,11 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { changePasswordAPI, resetPasswordAPI } from "../../api/authAPI";
+import { changePasswordAPI } from "../../api/authAPI";
 import Swal from "sweetalert2";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useEffect } from "react";
-import jwtDecode from "jwt-decode";
 
 const ChangePassword = () => {
   const navigate = useNavigate();
