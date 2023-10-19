@@ -3,7 +3,7 @@ import img1 from "../../assets/hero-one-big.jpg";
 const AboutUs = () => {
   return (
     <>
-      <div className="w-full tablet:mt-[550px] smallTab:mt-[620px] minMedium:mt-20 mt-20 medium:mt-0 big:mt-0 py-10 h-[100vh] flex justify-center items-center bg-gradient-to-b from-white via-green-100 to-green-200">
+      <div className="w-full tablet:mt-[550px] smallTab:mt-[670px] minMedium:mt-20 mt-20 medium:mt-0 big:mt-0 py-10 h-[100vh] flex justify-center items-center bg-gradient-to-b from-white via-green-100 to-green-200">
         <div className="w-[85%] tablet:flex-col-reverse flex justify-between h-[100%]">
           <img
             src={img1}

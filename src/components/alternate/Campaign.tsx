@@ -4,8 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { createCampaign } from "../../api/CampaignAPI";
-import Swal from "sweetalert2";
 
 const Campaign = () => {
   const navigate = useNavigate();
@@ -103,7 +101,7 @@ const Campaign = () => {
         </select>
       </div>
       <form
-        className="h-[550px] w-[48%] border p-3  smallTab:w-full"
+        className="h-[550px] w-[48%] border p-3 smallTab:flex smallTab:flex-col smallTab:items-center smallTab:w-full"
         style={{
           boxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",
           WebkitBoxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",
@@ -114,7 +112,6 @@ const Campaign = () => {
           <textarea
             className="h-full w-full resize-none outline-none border-none"
             placeholder="Title"
-            required
             {...register("title")}
           />
         </div>
@@ -122,7 +119,6 @@ const Campaign = () => {
           <input
             className="h-full w-full resize-none outline-none border-none"
             placeholder="₦ 1000.00"
-            required
             {...register("amountNeeded")}
           />
         </div>
@@ -130,7 +126,6 @@ const Campaign = () => {
           <textarea
             className="h-full w-full resize-none outline-none border-none"
             placeholder="Motivation"
-            required
             {...register("motivation")}
           />
         </div>
@@ -138,13 +133,12 @@ const Campaign = () => {
           <textarea
             className="h-full w-full resize-none outline-none border-none"
             placeholder="Description"
-            required
             {...register("description")}
           />
         </div>
         <div className="w-fullborder flex justify-end pr-3 items-center pt-1">
           <button
-            className="py-2 px-5 bg-[green] rounded-md text-white"
+            className="py-2 px-10 w-[200px] bg-emerald-500 hover:bg-[#001d23] transition-all duration-500 text-white"
             type="submit"
           >
             Launch

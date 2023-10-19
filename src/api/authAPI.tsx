@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// const apiUrl: string = `https://ad40-105-113-108-231.ngrok.io`;
 const apiUrl: string = `http://localhost:1000`;
 
 export const registerAPI = async (data: any) => {

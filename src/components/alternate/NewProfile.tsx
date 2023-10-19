@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import dummy from "../../assets/image1.jfif"
+import dummy from "../../assets/image1.jfif";
 
 const NewProfile = () => {
   const navigate = useNavigate();
@@ -79,7 +79,6 @@ const NewProfile = () => {
             <div className="w-[48%] ">
               <p className="capitalize">Name</p>
               <input
-
                 type="text"
                 placeholder="enter your name"
                 className="w-full pl-2 border h-[40px] outline-none"
@@ -97,7 +96,10 @@ const NewProfile = () => {
                 className="w-full pl-2 border h-[40px] outline-none"
                 {...register("phoneNumber")}
               />
-              <div ref={parent} className="text-rose-400 flex w-full justify-end text-[13px]">
+              <div
+                ref={parent}
+                className="text-rose-400 flex w-full justify-end text-[13px]"
+              >
                 {errors?.phoneNumber?.message}
               </div>
             </div>
@@ -109,7 +111,10 @@ const NewProfile = () => {
               className="w-full pl-2 border h-[40px] outline-none"
               {...register("address")}
             />
-            <div ref={parent} className="text-rose-400 flex w-full justify-center text-[13px]">
+            <div
+              ref={parent}
+              className="text-rose-400 flex w-full justify-center text-[13px]"
+            >
               {errors?.address?.message}
             </div>
           </div>
