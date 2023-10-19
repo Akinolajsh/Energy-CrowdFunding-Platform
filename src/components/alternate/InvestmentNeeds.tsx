@@ -10,7 +10,7 @@ const InvestmentNeeds = () => {
       <div className="flex w-full flex-wrap justify-center ">
         {
           data?.map((props: any) => (
-            <ProjectCard props={props} />
+            <ProjectCard props={props?._id} />
           ))
         }
         

@@ -6,7 +6,7 @@ const Projects = () => {
   console.log(data);
   return (
     <>
-      <div className="w-full min-h-[100vh] bg-rose-200 pt-[100px] ">
+      <div className="w-full min-h-[100vh] pt-[100px] ">
         <div className="w-full flex flex-wrap">
           {data?.map((props: any) => (
             <ProjectCard key={props._id} props={props} />

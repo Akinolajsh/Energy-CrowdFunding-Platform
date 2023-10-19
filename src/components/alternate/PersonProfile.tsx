@@ -1,6 +1,5 @@
-import React from 'react'
-import imgs from "../../assets/hero-one-big.jpg";
-import { useOneUser, useProfile } from '../../hooks/customHooks';
+
+import { useProfile } from '../../hooks/customHooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { onNewToggleState } from '../../global/globalState';
 

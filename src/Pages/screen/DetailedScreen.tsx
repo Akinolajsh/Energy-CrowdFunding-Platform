@@ -10,19 +10,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { onNewToggleState } from "../../global/globalState";
 import { FC } from "react";
 import PersonProfile from "../../components/alternate/PersonProfile";
+import { useParams } from "react-router-dom";
 
 interface iProps {
-  props: any;
+  props?: any;
 }
 const DetailedScreen: FC<iProps> = ({ props }) => {
+  const { id } = useParams();
+  console.log(id)
   const dispatch = useDispatch();
   const toggle = useSelector((state: any) => state.newToggle);
   const onChangeState = () => {
     dispatch(onNewToggleState(!toggle));
   };
+
+  console.log(props)
   return (
     <>
-      <div
+      {/* <div
         style={{
           width: "100%",
           height: "100vh",
@@ -32,14 +37,14 @@ const DetailedScreen: FC<iProps> = ({ props }) => {
           //   border: "1px solid rgba( 255, 255, 255, 0.18 )",
         }}
         className="fixed w-full min-h-[100vh]  z-50 top-0 left-0 flex items-center justify-center flex-col"
-      >
+      > */}
         <div className="w-[90%] min-h-[100vh] timeLine:overflow-scroll bg-white relative flex justify-center items-center">
-          <div
+          {/* <div
             onClick={onChangeState}
             className="absolute top-0 right-0 h-[50px] flex justify-center hover:text-white transition-all duration-500 items-center cursor-pointer rounded-l-full hover:bg-[#001d23] bg-emerald-500 text-[30px] w-[50px]"
           >
             <AiOutlineClose />
-          </div>
+          </div> */}
           <div className="w-[85%] flex timeLine:flex-col timeLine:mt-[450px] justify-between">
             <div className="timeLine:w-full w-[48%] h-full ">
               <div className="w-full tablet:h-[300px] timeLine:w-full h-[350px]">
@@ -96,7 +101,7 @@ const DetailedScreen: FC<iProps> = ({ props }) => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

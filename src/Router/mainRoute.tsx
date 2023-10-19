@@ -83,11 +83,11 @@ export const mainRoute = createBrowserRouter([
     element: <CheckOutPage />,
   },
   {
-    path: "*",
-    element: <ErrorScreen />,
+    path: "/detailed/:id",
+    element: <DetailedScreen />,
   },
   {
-    path: "/detailed",
-    element: <DetailedScreen />,
+    path: "*",
+    element: <ErrorScreen />,
   },
 ]);

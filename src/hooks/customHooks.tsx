@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { viewOneAPI } from "../api/authAPI";
 import { getCampaign } from "../api/CampaignAPI";
-import { profileAPI, profileAPIGet } from "../api/ProfileAPI";
+import { profileAPIGet } from "../api/ProfileAPI";
 
 export const useOneUser = (id: string) => {
   const { data, isLoading } = useQuery({
