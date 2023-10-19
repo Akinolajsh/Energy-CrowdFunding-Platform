@@ -1,6 +1,12 @@
 import { FaCalendarDay } from "react-icons/fa";
 import imgs from "../../assets/hero-one-big.jpg";
+import { useDispatch, useSelector } from "react-redux";
 const ProjectCard = () => {
+  const toggle = useSelector((state: any) => state.toggle);
+  const dispatch = useDispatch();
+  const onChangeState = () => {
+    // dispatch(onToggle)
+  }
   return (
     <>
       <div className="w-[350px] m-2 h-[550px] bg-white">
@@ -31,7 +37,7 @@ const ProjectCard = () => {
             <span className="text-[#001D23] font-bold">25, February, 2023</span>
           </div>
           <div className="w-full text-[#001d23] my-3">
-            Goal: <span className="text-emerald-500">₦5, 000.00</span>
+            Goal: <span className="text-emerald-500">₦5, 000.00</span> / Raised: <span className="text-rose-500">₦2, 000.00</span> 
           </div>
           <button className="w-full h-[50px] bg-emerald-500 transition-all duration-500 text-white text-[18px] font-bold hover:bg-[#001d23]">
             Invest us

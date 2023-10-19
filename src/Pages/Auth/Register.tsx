@@ -53,7 +53,7 @@ const Register = () => {
     });
   });
   return (
-    <div className="h-[100vh] text-slate-400  w-full bg-emerald-500 flex justify-center ">
+    <div className="h-[100vh] items-center bg-[#001d23]  text-slate-400  w-full flex justify-center ">
       {/* main */}
       <form
         onSubmit={onHandleSubmit}
@@ -124,7 +124,7 @@ const Register = () => {
         </div>
         <button
           type="submit"
-          className="bg-emerald-500 font-bold h-[50px] w-full mt-5 text-white text-[20px] rounded-md "
+          className="bg-emerald-500 hover:bg-[#001d23] transition-all duration-300 font-bold h-[50px] w-full mt-5 text-white text-[20px] rounded-md "
         >
           Register
         </button>
@@ -134,9 +134,8 @@ const Register = () => {
         <div className="mt-3 flex  justify-between items-center  w-full ">
           <hr className="w-[90px] small:w-[35px] text-black" />
           <div className=" text-[15px] small:text-[10px]">
-            {" "}
-            Or Register With Google{" "}
-          </div>{" "}
+            Or Register With Google
+          </div>
           <div className="bg-rose-400  rounded-[50%] text-white flex justify-center small:h-[30px] h-[40px] w-[40px] items-center small:w-[30px]">
             <BsGoogle />
           </div>

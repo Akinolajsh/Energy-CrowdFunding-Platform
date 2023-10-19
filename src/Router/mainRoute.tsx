@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../components/common/Layout";
-import HomeScreen from "../Pages/Home/HomeScreen";
 import Register from "../Pages/Auth/Register";
 import Login from "../Pages/Auth/Login";
 import Resetpassword from "../Pages/Auth/ResetPassword";
@@ -9,21 +8,41 @@ import Testimony from "../Pages/Home/Testimony";
 import Category from "../Pages/Home/Category";
 import MessagePage from "../Pages/screen/MessagePage";
 import AlternatePage from "../Pages/screen/AlternatePage";
+import Dashboard from "../components/alternate/Dashboard";
+import NewProfile from "../components/alternate/NewProfile";
+import Settings from "../components/alternate/Settings";
+import Projects from "../components/alternate/Projects";
+import Compaign from "../components/alternate/Compaign";
 import DetailedScreen from "../Pages/screen/DetailedScreen";
 
 export const mainRoute = createBrowserRouter([
   {
-    path: "/",
+    path: "/profile",
     element: <Layout />,
     children: [
       {
         index: true,
-        element: <HomeScreen />,
+        element: <NewProfile />,
+      },
+      {
+        index: true,
+        path: "/profile/settings",
+        element: <Settings />,
+      },
+      {
+        index: true,
+        path: "/profile/projects",
+        element: <Projects />,
+      },
+      {
+        index: true,
+        path: "/profile/launch",
+        element: <Compaign />,
       },
     ],
   },
   {
-    path: "/alternate",
+    path: "/",
     element: <AlternatePage />,
   },
   {
@@ -59,11 +78,19 @@ export const mainRoute = createBrowserRouter([
     element: <Category />,
   },
   {
+    path: "/detailed",
+    element: <DetailedScreen />,
+  },
+  {
     path: "/message",
     element: <MessagePage />,
   },
+  // {
+  //   path: "/profile",
+  //   element: <Profile />,
+  // },
   {
-    path: "/detailed",
-    element: <DetailedScreen />,
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);

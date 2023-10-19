@@ -63,7 +63,7 @@ const Login = () => {
     }
   }, []);
   return (
-    <div className="h-[100vh] text-slate-400  w-full bg-emerald-500 flex justify-center ">
+    <div className="h-[100vh] items-center bg-[#001d23] text-slate-400  w-full flex justify-center ">
       {/* main */}
       <form
         onSubmit={onHandleSubmit}
@@ -103,7 +103,8 @@ const Login = () => {
           <div className="h-[40px] w-full flex  justify-center items-center border-b-2 border-[#cecbcb] mt-4">
             <input
               placeholder="Password"
-              {...register("password")} type="password"
+              {...register("password")}
+              type="password"
               className="h-[100%] w-[100%] outline-none border-none flex 
         "
             />
@@ -122,7 +123,7 @@ const Login = () => {
         )}
         <button
           type="submit"
-          className="bg-emerald-500 font-bold h-[50px] w-full mt-5 text-white text-[20px] rounded-md "
+          className="hover:bg-[#001d23] bg-emerald-500 transition-all duration-300 font-bold h-[50px] w-full mt-5 text-white text-[20px] rounded-md "
         >
           Login
         </button>

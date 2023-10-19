@@ -5,6 +5,8 @@ import heroImg1 from "../../assets/hero-line-2.png";
 import heroImg3 from "../../assets/hero-one-small.jpg";
 import heroImg5 from "../../assets/hero-one-big.jpg";
 import heroImg4 from "../../assets/hero-one-small-2.jpg";
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <>
@@ -26,10 +28,20 @@ const Hero = () => {
           <p className="text-[#001D23] medium:text-[60px] smallTab:text-[30px] smallTab:w-[100%] tablet:text-[45px] tablet:w-[90%] font-bold text-[80px] w-[70%] text-center">
             Raise Hand to Promote Best Products
           </p>
-          <button className="mt-5 flex items-center px-[30px] py-3 border border-[#001D23] hover:bg-[#001D23] hover:rounded-md transition-all duration-300 hover:text-white text-[#001D23] font-bold rounded-full">
-            Explore Project
-            <BsArrowRight className="ml-3" />
-          </button>
+          <div className="flex">
+            {/* <button className="mt-5 flex mx-3 items-center px-[30px] py-3 border border-[#001D23] hover:bg-[#001D23] hover:rounded-md transition-all duration-300 hover:text-white text-[#001D23] font-bold rounded-full">
+              <Link to={`/explore`} className="flex items-center">
+                Explore Project
+                <BsArrowRight className="ml-3" />
+              </Link>
+            </button> */}
+            <button className="mt-5 flex mx-3 items-center px-[30px] py-3 border border-[#001D23] hover:bg-[#001D23] hover:rounded-md transition-all duration-300 hover:text-white text-[#001D23] font-bold rounded-full">
+              <Link to={`/register`} className="flex items-center">
+                Seek Funds
+                <BsArrowRight className="ml-3" />
+              </Link>
+            </button>
+          </div>
           <div className="w-full mt-20 tablet:mt-7 tablet:justify-center h-full flex items-center justify-between">
             <img
               src={heroImg3}
