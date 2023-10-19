@@ -4,11 +4,8 @@ import Register from "../Pages/Auth/Register";
 import Login from "../Pages/Auth/Login";
 import Resetpassword from "../Pages/Auth/ResetPassword";
 import ChangePassword from "../Pages/Auth/ChangePassword";
-import Testimony from "../Pages/Home/Testimony";
-import Category from "../Pages/Home/Category";
 import MessagePage from "../Pages/screen/MessagePage";
 import AlternatePage from "../Pages/screen/AlternatePage";
-import Dashboard from "../components/alternate/Dashboard";
 import NewProfile from "../components/alternate/NewProfile";
 import Settings from "../components/alternate/Settings";
 import Projects from "../components/alternate/Projects";
@@ -71,14 +68,6 @@ export const mainRoute = createBrowserRouter([
     element: <ChangePassword />,
   },
   {
-    path: "/testimony",
-    element: <Testimony />,
-  },
-  {
-    path: "/category",
-    element: <Category />,
-  },
-  {
     path: "/message",
     element: <MessagePage />,
   },
@@ -89,9 +78,5 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/check-out-page",
     element: <CheckOutPage />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
   },
 ]);
