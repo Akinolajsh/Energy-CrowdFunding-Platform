@@ -96,7 +96,7 @@ const Footer = () => {
             <AiOutlineCopyrightCircle />
             <div className="ml-2">All Rights Reserved</div>
           </div>
-          <div className="w-[150px] flex justify-between items-center text-[25px] text-white hover:cursor-pointer">
+          <div className="w-[150px] flex justify-between items-center text-[25px] hover:cursor-pointer text-white ">
             <AiOutlineTwitter  />
             <BsFacebook />
             <AiOutlineInstagram />
