@@ -4,9 +4,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import { createCampaign } from "../../api/CampaignAPI";
+import {useSelector} from "react-redux"
 
 const Campaign = () => {
   const navigate = useNavigate();
+  const user = useSelector((state:any) => state.user)
+
+
 
   const [avatar, setAvatar] = useState<string>("");
   const [image, setImage] = useState<any>();
@@ -32,7 +38,7 @@ const Campaign = () => {
   const onHandleSubmit = handleSubmit(async (data: any) => {
     const { title, amountNeeded, motivation, description } = data;
 
-    const formdata = new FormData();
+    const formdata:any = new FormData();
     formdata.append("title", title);
     formdata.append("motivation", motivation);
     formdata.append("amountNeeded", amountNeeded);
@@ -41,32 +47,33 @@ const Campaign = () => {
 
     console.log("first", formdata);
 
-    // createCampaign(data).then((res) => {
-    //   if (res) {
-    //     Swal.fire({
-    //       title: "Campaign Succesfully Created😊",
-    //       showClass: {
-    //         popup: "animate_animated animate_fadeInDown",
-    //       },
-    //       hideClass: {
-    //         popup: "animate_animated animate_fadeOutUp",
-    //       },
-    //     });
-    //     navigate("/");
-    //   } else {
-    //     navigate("/profile/launch");
-    //     Swal.fire({
-    //       title: "Error occured while creating campaign 😢😢",
-    //       showClass: {
-    //         popup: "animate_animated animate_fadeInDown",
-    //       },
-    //       icon: "error",
-    //       hideClass: {
-    //         popup: "animate_animated animate_fadeOutUp",
-    //       },
-    //     });
-    //   }
-    // });
+    createCampaign(formdata, user ).then((res) => {
+
+      if (res) {
+        Swal.fire({
+          title: "Campaign Succesfully Created😊",
+          showClass: {
+            popup: "animate_animated animate_fadeInDown",
+          },
+          hideClass: {
+            popup: "animate_animated animate_fadeOutUp",
+          },
+        });
+        navigate("/");
+      } else {
+        navigate("/profile/launch");
+        Swal.fire({
+          title: "Error occured while creating campaign 😢😢",
+          showClass: {
+            popup: "animate_animated animate_fadeInDown",
+          },
+          icon: "error",
+          hideClass: {
+            popup: "animate_animated animate_fadeOutUp",
+          },
+        });
+      }
+    });
   });
 
   return (
@@ -98,7 +105,7 @@ const Campaign = () => {
           <option value="Biomass Energy">Biomass Energy</option>
           <option value="Hydroelectric Power">Hydroelectric Power</option>
           <option value="Hydropower">Hydropower</option>
-        </select>dfsdf
+        </select>
       </div>
       <form
         className="h-[550px] w-[48%] border p-3 smallTab:flex smallTab:flex-col smallTab:items-center smallTab:w-full"

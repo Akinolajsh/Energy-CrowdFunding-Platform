@@ -1,10 +1,13 @@
 import axios from "axios";
 
-const apiUrl: string = `http://localhost:1000`;
+
+const url:string= "http://localhost:1000"
+// 
+// const url:string= "https://2516-105-113-32-86.ngrok.io"
 
 export const registerAPI = async (data: any) => {
   try {
-    return await axios.post(`${apiUrl}/api/register`, data).then((res: any) => {
+    return await axios.post(`${url}/api/register`, data).then((res: any) => {
       return res.data.data;
     });
   } catch (error: any) {
@@ -14,7 +17,7 @@ export const registerAPI = async (data: any) => {
 
 export const verifyAPI = async (token: string) => {
   try {
-    return await axios.get(`${apiUrl}/api/${token}/verify`).then((res: any) => {
+    return await axios.get(`${url}/api/${token}/verify`).then((res: any) => {
       return res.data.data;
     });
   } catch (error: any) {
@@ -24,7 +27,7 @@ export const verifyAPI = async (token: string) => {
 
 export const signInAPI = async (data: any) => {
   try {
-    return await axios.post(`${apiUrl}/api/sign-in`, data).then((res: any) => {
+    return await axios.post(`${url}/api/sign-in`, data).then((res: any) => {
       return res.data.data;
     });
   } catch (error: any) {
@@ -35,7 +38,7 @@ export const signInAPI = async (data: any) => {
 export const resetPasswordAPI = async (data: any) => {
   try {
     return await axios
-      .patch(`${apiUrl}/api/reset-user-password`, data)
+      .patch(`${url}/api/reset-user-password`, data)
       .then((res: any) => {
         return res.data.data;
       });
@@ -47,7 +50,7 @@ export const resetPasswordAPI = async (data: any) => {
 export const changePasswordAPI = async (token: string, data: any) => {
   try {
     return await axios
-      .post(`${apiUrl}/api/${token}/change-user-password`, data)
+      .post(`${url}/api/${token}/change-user-password`, data)
       .then((res: any) => {
         return res.data.data;
       });
@@ -58,7 +61,7 @@ export const changePasswordAPI = async (token: string, data: any) => {
 
 export const viewOneAPI = async (_id: string) => {
   try {
-    return await axios.get(`${apiUrl}/api/${_id}/one`).then((res: any) => {
+    return await axios.get(`${url}/api/${_id}/one`).then((res: any) => {
       return res.data.data;
     });
   } catch (error: any) {

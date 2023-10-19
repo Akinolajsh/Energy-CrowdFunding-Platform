@@ -6,10 +6,12 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import dummy from "../../assets/image1.jfif";
+import { profileAPI } from "../../api/ProfileAPI";
+import { useSelector } from "react-redux";
 
 const NewProfile = () => {
   const navigate = useNavigate();
-
+const user = useSelector((state:any) => state.user)
   const [parent] = useAutoAnimate();
 
   const [avatar, setAvatar] = useState<string>("");
@@ -45,6 +47,10 @@ const NewProfile = () => {
     formData.append("phoneNumber", phoneNumber);
     formData.append("address", address);
     formData.append("avatar", avatar);
+
+    profileAPI(formData, user).then(() => {
+      navigate("/")
+    })
   });
 
   return (
