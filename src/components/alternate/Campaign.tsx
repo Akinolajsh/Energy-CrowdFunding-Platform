@@ -4,8 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { createCampaign } from "../../api/CampaignAPI";
-import Swal from "sweetalert2";
 
 const Campaign = () => {
   const navigate = useNavigate();
@@ -72,8 +70,8 @@ const Campaign = () => {
   });
 
   return (
-    <div className="h-full w-full flex justify-between  p-5 smallTab:flex-col">
-      <div className="w-[45%] h-[550px] smallTab:h-[320px] flex flex-col smallTab:w-full ">
+    <div className="h-full w-full flex justify-between p-5 smallTab:flex-col">
+      <div className="w-[45%] h-[550px] mt-20 smallTab:h-[320px] flex flex-col smallTab:w-full ">
         <div
           className="h-[400px] smallTab:h-[250px] w-full border overflow-hidden flex justify-center items-center"
           style={{
@@ -103,7 +101,7 @@ const Campaign = () => {
         </select>
       </div>
       <form
-        className="h-[550px] w-[48%] border p-3  smallTab:w-full"
+        className="h-[550px] mt-20 w-[48%] border p-3  smallTab:w-full"
         style={{
           boxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",
           WebkitBoxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",

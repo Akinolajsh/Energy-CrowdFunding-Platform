@@ -81,7 +81,7 @@ const NewProfile = () => {
               <input
                 type="text"
                 placeholder="enter your name"
-                className="w-full pl-2 border h-[40px]"
+                className="w-full pl-2 smallTab:text-[12px] border h-[40px]"
                 {...register("name")}
               />
               <div ref={parent} className="text-rose-400 text-[13px]">
@@ -93,7 +93,7 @@ const NewProfile = () => {
               <input
                 type="text"
                 placeholder="telephone"
-                className="w-full pl-2 border h-[40px]"
+                className="w-full pl-2 smallTab:text-[12px]  border h-[40px]"
                 {...register("phoneNumber")}
               />
               <div ref={parent} className="text-rose-400 flex w-full justify-end text-[13px]">
@@ -105,7 +105,7 @@ const NewProfile = () => {
             <input
               type="text"
               placeholder="enter your address"
-              className="w-full pl-2 border h-[40px]"
+              className="w-full pl-2 border smallTab:text-[12px] h-[40px]"
               {...register("address")}
             />
             <div ref={parent} className="text-rose-400 flex w-full justify-center text-[13px]">
