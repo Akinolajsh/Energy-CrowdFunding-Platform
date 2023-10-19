@@ -10,7 +10,7 @@ const LoadingScreen = () => {
         backdropFilter: "blur( 4px )",
         //   border: "1px solid rgba( 255, 255, 255, 0.18 )",
       }}
-      className="fixed w-full h-[100vh] top-0 left-0 flex items-center justify-center flex-col"
+      className="fixed w-full z-50 h-[100vh] top-0 left-0 flex items-center justify-center flex-col"
     >
       <BallTriangle
         height={100}

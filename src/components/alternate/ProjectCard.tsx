@@ -3,20 +3,26 @@ import { FaCalendarDay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import PersonProfile from "./PersonProfile";
+import { useDispatch, useSelector } from "react-redux";
+import { onNewToggleState } from "../../global/globalState";
+import DetailedScreen from "../../Pages/screen/DetailedScreen";
 
 interface iProps {
   props: any;
 }
 
 const ProjectCard: React.FC<iProps> = ({ props }) => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const toggle = useSelector((state: any) => state.newToggle);
+  const onChangeState = () => {
+    dispatch(onNewToggleState(!toggle));
+  };
   return (
     <>
+      {toggle && <DetailedScreen />}
       <div
         className="w-[350px]  m-2 min-h-[550px] bg-white"
-        onClick={() => {
-          navigate("/");
-        }}
+        onClick={onChangeState}
       >
         <div className="w-full relative h-[250px]">
           <div className="overflow-hidden h-full w-full">

@@ -14,7 +14,6 @@ const NewProfile = () => {
   const navigate = useNavigate();
 const user = useSelector((state:any) => state.user)
   const [parent] = useAutoAnimate();
-
   const [image, setImage] = useState<string>("");
   const [avatar, setAvatar] = useState<any>(dummy);
 
@@ -114,7 +113,7 @@ const user = useSelector((state:any) => state.user)
               <input
                 type="text"
                 placeholder="enter your name"
-                className="w-full pl-2 border h-[40px] outline-none"
+                className="w-full pl-2 text-[12px] border h-[40px] outline-none"
                 {...register("name")}
               />
               <div ref={parent} className="text-rose-400 text-[13px]">
@@ -126,7 +125,7 @@ const user = useSelector((state:any) => state.user)
               <input
                 type="text"
                 placeholder="telephone"
-                className="w-full pl-2 border h-[40px] outline-none"
+                className="w-full pl-2 border text-[12px] h-[40px] outline-none"
                 {...register("phoneNumber")}
               />
               <div
@@ -141,7 +140,7 @@ const user = useSelector((state:any) => state.user)
             <input
               type="text"
               placeholder="enter your address"
-              className="w-full pl-2 border h-[40px] outline-none"
+              className="w-full pl-2 border h-[40px] text-[12px] outline-none"
               {...register("address")}
             />
             <div

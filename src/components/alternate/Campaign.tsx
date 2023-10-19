@@ -7,6 +7,8 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { createCampaign } from "../../api/CampaignAPI";
 import { useSelector } from "react-redux";
+import { FaCamera } from "react-icons/fa";
+import LoadingScreen from "../../utils/LoaderScreen";
 
 const Campaign = () => {
   const navigate = useNavigate();
@@ -14,6 +16,7 @@ const Campaign = () => {
 
   const [image, setImage] = useState<string>("");
   const [avatar, setAvatar] = useState<any>(dummy);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleImage = (e: any) => {
     const file = e.target.files[0];
@@ -35,8 +38,9 @@ const Campaign = () => {
   });
 
   const onHandleSubmit = handleSubmit(async (data: any) => {
-    const { title, amountNeeded, motivation, description,category } = data;
-
+    const { title, amountNeeded, motivation, description, category } = data;
+    
+    setLoading(true);
     const formdata: any = new FormData();
     formdata.append("title", title);
     formdata.append("motivation", motivation);
@@ -44,116 +48,121 @@ const Campaign = () => {
     formdata.append("description", description);
     formdata.append("category", category);
     formdata.append("image", image);
-    formdata.append("category", category);
 
-    console.log("first: ", formdata);
-
-    createCampaign(formdata, user).then((res) => {
+    createCampaign(formdata, user).then((res: any) => {
       if (res) {
         Swal.fire({
-          title: "Campaign Succesfully Created😊",
-          showClass: {
-            popup: "animate_animated animate_fadeInDown",
-          },
-          hideClass: {
-            popup: "animate_animated animate_fadeOutUp",
-          },
+          icon: "success",
+          text: "Launched Project",
+          timer: 3000,
+          showCancelButton: false,
+          timerProgressBar: true,
+        }).then(() => {
+          setLoading(false);
+          navigate("/profile/projects");
         });
-        navigate("/profile/projects");
       } else {
         Swal.fire({
-          title: "Error occured while creating campaign 😢😢",
-          showClass: {
-            popup: "animate_animated animate_fadeInDown",
-          },
-          icon: "error",
-          hideClass: {
-            popup: "animate_animated animate_fadeOutUp",
-          },
+          icon: "warning",
+          text: "A Problem occured",
+          timer: 3000,
+          showCancelButton: false,
         });
       }
     });
   });
 
   return (
-    <div className="h-full w-full flex justify-between  p-5 smallTab:flex-col pt-[90px]">
-      <div className="w-[45%] h-[550px] smallTab:h-[320px] flex flex-col smallTab:w-full ">
+    <>
+      {loading && <LoadingScreen />}
+      <form
+        onSubmit={onHandleSubmit}
+        className="h-full w-full flex justify-between  p-5 smallTab:flex-col pt-[90px]"
+      >
+        <div className="w-[45%] h-[550px] smallTab:h-[320px] flex flex-col smallTab:w-full ">
+          <div
+            className="h-[400px] relative smallTab:h-[250px] w-full border overflow-hidden flex justify-center items-center"
+            style={{
+              boxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",
+              WebkitBoxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",
+            }}
+          >
+            <label
+              htmlFor="image"
+              className="w-[50px] h-[50px] flex justify-center items-center cursor-pointer hover:bg-[#001d23] hover:text-white transition-all duration-500 bg-emerald-500 text-[30px] absolute bottom-0 right-0"
+            >
+              <FaCamera />
+            </label>
+            <label htmlFor="image" className="h-full border overflow-hidden">
+              <input
+                type="file"
+                id="image"
+                className="hidden"
+                onChange={handleImage}
+              />
+              <img src={avatar} className="object-cover w-full h-full" />
+            </label>
+          </div>
+
+          <select
+            {...register("category")}
+            className="mt-5 border w-full h-[40px] outline-none rounded-md"
+          >
+            <option>Select Category</option>
+            <option>Solar Energy</option>
+            <option>Geothermal Energy</option>
+            <option>Wind Energy</option>
+            <option>Biomass Energy</option>
+            <option>Hydroelectric Power</option>
+            <option>Hydropower</option>
+          </select>
+        </div>
         <div
-          className="h-[400px] smallTab:h-[250px] w-full border overflow-hidden flex justify-center items-center"
+          className="h-[550px] w-[48%] border p-3 smallTab:flex smallTab:flex-col smallTab:items-center smallTab:w-full"
           style={{
             boxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",
             WebkitBoxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",
           }}
         >
-          <label htmlFor="image" className="h-full border overflow-hidden">
-            <input
-              type="file"
-              id="image"
-              className="hidden"
-              onChange={handleImage}
+          <div className="h-[60px] w-full flex justify-center items-center border rounded-md p-2 my-2">
+            <textarea
+              className="h-full w-full resize-none outline-none border-none"
+              placeholder="Title"
+              {...register("title")}
             />
-            <img src={avatar} className="object-cover w-full h-full" />
-          </label>
-        </div>
-
-        <select className="mt-5 border w-full h-[40px] outline-none rounded-md"
-        {...register("category")}
-        >
-          <option value="">Select Category</option>
-          <option value="Solar Energy">Solar Energy</option>
-          <option value="Geothermal Energy">Geothermal Energy</option>
-          <option value="Wind Energy">Wind Energy</option>
-          <option value="Biomass Energy">Biomass Energy</option>
-          <option value="Hydroelectric Power">Hydroelectric Power</option>
-          <option value="Hydropower">Hydropower</option>
-        </select>
-      </div>
-      <form
-        className="h-[550px] w-[48%] border p-3 smallTab:flex smallTab:flex-col smallTab:items-center smallTab:w-full"
-        style={{
-          boxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",
-          WebkitBoxShadow: "0px 0px 10px 0px rgba(237,230,230,0.75)",
-        }}
-        onSubmit={onHandleSubmit}
-      >
-        <div className="h-[60px] w-full flex justify-center items-center border rounded-md p-2 my-2">
-          <textarea
-            className="h-full w-full resize-none outline-none border-none"
-            placeholder="Title"
-            {...register("title")}
-          />
-        </div>
-        <div className="h-[60px] w-full flex justify-center items-center border rounded-md p-2 my-2">
-          <input
-            className="h-full w-full resize-none outline-none border-none"
-            placeholder="₦ 1000.00"
-            {...register("amountNeeded")}
-          />
-        </div>
-        <div className="h-[120px] w-full flex justify-center items-center border rounded-md p-2 my-2">
-          <textarea
-            className="h-full w-full resize-none outline-none border-none"
-            placeholder="Motivation"
-            {...register("motivation")}
-          />
-        </div>
-        <div className="h-[200px] w-full flex justify-center items-center border rounded-md p-2 my-2">
-          <textarea
-            className="h-full w-full resize-none outline-none border-none"
-            placeholder="Description"
-            {...register("description")}
-          />
-        </div>
-        <div className="w-fullborder flex justify-end pr-3 items-center pt-1">
-          <button
-            className="py-2 px-10 w-[200px] bg-emerald-500 hover:bg-[#001d23] transition-all duration-500 text-white"
-            type="submit"
-          >
-            Launch
-          </button>
+          </div>
+          <div className="h-[60px] w-full flex justify-center items-center border rounded-md p-2 my-2">
+            <input
+              className="h-full w-full resize-none outline-none border-none"
+              placeholder="₦ 1000.00"
+              {...register("amountNeeded")}
+            />
+          </div>
+          <div className="h-[120px] w-full flex justify-center items-center border rounded-md p-2 my-2">
+            <textarea
+              className="h-full w-full resize-none outline-none border-none"
+              placeholder="Motivation"
+              {...register("motivation")}
+            />
+          </div>
+          <div className="h-[200px] w-full flex justify-center items-center border rounded-md p-2 my-2">
+            <textarea
+              className="h-full w-full resize-none outline-none border-none"
+              placeholder="Description"
+              {...register("description")}
+            />
+          </div>
+          <div className="w-fullborder flex justify-end pr-3 items-center pt-1">
+            <button
+              className="py-2 px-10 w-[200px] bg-emerald-500 hover:bg-[#001d23] transition-all duration-500 text-white"
+              type="submit"
+            >
+              Launch
+            </button>
+          </div>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 

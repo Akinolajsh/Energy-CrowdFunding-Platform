@@ -26,6 +26,5 @@ export const useProfile = (userID:string) => {
     queryKey: ["useProfile"],
     queryFn: () => profileAPIGet(userID),
   });
-console.log(data)
   return { data, isLoading };
 };

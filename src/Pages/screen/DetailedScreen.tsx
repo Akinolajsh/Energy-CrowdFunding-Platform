@@ -3,11 +3,18 @@ import {
   AiOutlineTwitter,
   AiOutlineInstagram,
   AiFillLinkedin,
+  AiOutlineClose,
 } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
-
+import { useDispatch, useSelector } from "react-redux";
+import { onNewToggleState } from "../../global/globalState";
 
 const DetailedScreen = () => {
+  const dispatch = useDispatch();
+  const toggle = useSelector((state: any) => state.newToggle);
+  const onChangeState = () => {
+    dispatch(onNewToggleState(!toggle));
+  };
   return (
     <>
       <div
@@ -19,13 +26,16 @@ const DetailedScreen = () => {
           backdropFilter: "blur( 4px )",
           //   border: "1px solid rgba( 255, 255, 255, 0.18 )",
         }}
-        className="fixed w-full h-[100vh] top-0 left-0 flex items-center justify-center flex-col"
+        className="fixed w-full h-[100vh]  z-50 top-0 left-0 flex items-center justify-center flex-col"
       >
-        <div className="w-full h-[90vh] flex justify-center items-center">
-          <div className="w-[85%] h-full  flex justify-between">
+        <div className="w-[90%] h-[100vh] bg-white relative flex justify-center items-center">
+          <div onClick={onChangeState} className="absolute top-0 right-0 h-[50px] flex justify-center hover:text-white transition-all duration-500 items-center cursor-pointer rounded-l-full hover:bg-[#001d23] bg-emerald-500 text-[30px] w-[50px]">
+            <AiOutlineClose />
+          </div>
+          <div className="w-[85%] flex justify-between">
             <div className="w-[48%] h-full ">
               <div className="w-full h-[350px]">
-                <img src={pix} alt="" className="w-full h-full" />
+                <img src={pix} alt="" className="w-full border h-full" />
               </div>
               <div className="  mt-[50px]">
                 <div className="my-[10px] text-[25px] font-bold">
