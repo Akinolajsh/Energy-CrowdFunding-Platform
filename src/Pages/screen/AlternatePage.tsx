@@ -4,8 +4,10 @@ import InvestmentNeeds from "../../components/alternate/InvestmentNeeds";
 import NewFooter from "../../components/alternate/NewFooter";
 import WhatWeDo from "../../components/alternate/WhatWeDo";
 import Footer from "../../components/static/Footer";
+import { useProjects } from "../../hooks/customHooks";
 
 const AlternatePage = () => {
+  
   return (
     <>
       <Hero />

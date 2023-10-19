@@ -1,7 +1,19 @@
+import { useProjects } from "../../hooks/customHooks";
+import ProjectCard from "./ProjectCard";
+
 const Projects = () => {
+const {data} = useProjects()
+console.log(data)
   return <>
-    <div className="w-full min-h-[100vh] bg-rose-200">
-      <div className="w-full"></div>
+    <div className="w-full min-h-[100vh] bg-rose-200 pt-[100px] ">
+      <div className="w-full">
+        
+        {
+          data?.map((props:any) => (
+          <ProjectCard key={props._id} props={props} />
+          ))
+        }
+      </div>
     </div>
   </>;
 };
