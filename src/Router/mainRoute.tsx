@@ -13,6 +13,7 @@ import Campaign from "../components/alternate/Campaign";
 import CheckOut from "../components/alternate/Checkout";
 import CheckOutPage from "../components/alternate/CheckOutPage";
 import ErrorScreen from "../error/js/Error";
+import Message2 from "../Pages/screen/Message2";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/message",
     element: <MessagePage />,
+  },
+  {
+    path: "/message2",
+    element: <Message2 />,
   },
   {
     path: "/check-out",
