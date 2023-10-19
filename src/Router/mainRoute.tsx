@@ -13,6 +13,7 @@ import Campaign from "../components/alternate/Campaign";
 import CheckOut from "../components/alternate/Checkout";
 import CheckOutPage from "../components/alternate/CheckOutPage";
 import ErrorScreen from "../error/js/Error";
+import DetailedScreen from "../Pages/screen/DetailedScreen";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -83,5 +84,9 @@ export const mainRoute = createBrowserRouter([
   {
     path: "*",
     element: <ErrorScreen />,
-  }
+  },
+  {
+    path: "/detailed",
+    element: <DetailedScreen />,
+  },
 ]);
