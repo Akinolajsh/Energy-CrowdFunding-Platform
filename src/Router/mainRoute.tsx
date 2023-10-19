@@ -1,61 +1,97 @@
-import {createBrowserRouter} from "react-router-dom"
-import Layout from "../components/common/Layout"
-import HomeScreen from "../Pages/Home/HomeScreen"
-import Register from "../Pages/Auth/Register"
-import Login from "../Pages/Auth/Login"
-import Resetpassword from "../Pages/Auth/ResetPassword"
-import ChangePassword from "../Pages/Auth/ChangePassword"
-import Testimony from "../Pages/Home/Testimony"
-import Category from "../Pages/Home/Category"
-import Profile from "../Pages/Home/Profile"
-import Hero2 from "../Pages/Home/Hero2"
-import Creating from "../Pages/Home/Creating"
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "../components/common/Layout";
+import Register from "../Pages/Auth/Register";
+import Login from "../Pages/Auth/Login";
+import Resetpassword from "../Pages/Auth/ResetPassword";
+import ChangePassword from "../Pages/Auth/ChangePassword";
+import Testimony from "../Pages/Home/Testimony";
+import Category from "../Pages/Home/Category";
+import MessagePage from "../Pages/screen/MessagePage";
+import AlternatePage from "../Pages/screen/AlternatePage";
+import Dashboard from "../components/alternate/Dashboard";
+import NewProfile from "../components/alternate/NewProfile";
+import Settings from "../components/alternate/Settings";
+import Projects from "../components/alternate/Projects";
+import Campaign from "../components/alternate/Campaign";
+import CheckOut from "../components/alternate/Checkout";
+import CheckOutPage from "../components/alternate/CheckOutPage";
 
-export const mainRoute= createBrowserRouter([
-    {
-        path: "/",
-        element: <Layout/>,
-        children: [
-            {
-                index: true,
-                element: <HomeScreen/>
-            }
-        ]
-    },
-    {
-        path: "/register",
-        element: <Register/>
-    },
-    {
-        path: "/login",
-        element: <Login/>
-    },
-    {
-        path: "/reset-password",
-        element: <Resetpassword/>
-    },
-    {
-        path: "/change-password",
-        element: <ChangePassword/>
-    },
-    {
-        path: "/testimony",
-        element: <Testimony/>
-    },
-    {
-        path: "/category",
-        element: <Category/>
-    },
-    {
-        path: "/profile",
-        element: <Profile/>
-    },
-    {
-        path: "/hero",
-        element: <Hero2/>
-    },
-    {
-        path: "/create",
-        element: <Creating/>
-    },
-])
+export const mainRoute = createBrowserRouter([
+  {
+    path: "/profile",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <NewProfile />,
+      },
+      {
+        index: true,
+        path: "/profile/settings",
+        element: <Settings />,
+      },
+      {
+        index: true,
+        path: "/profile/projects",
+        element: <Projects />,
+      },
+      {
+        index: true,
+        path: "/profile/launch",
+        element: <Campaign />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <AlternatePage />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/:token/verify",
+    element: <Login />,
+  },
+  {
+    path: "/reset-password",
+    element: <Resetpassword />,
+  },
+  {
+    path: "/change-user-password",
+    element: <ChangePassword />,
+  },
+  {
+    path: "/:token/reset-user-password",
+    element: <ChangePassword />,
+  },
+  {
+    path: "/testimony",
+    element: <Testimony />,
+  },
+  {
+    path: "/category",
+    element: <Category />,
+  },
+  {
+    path: "/message",
+    element: <MessagePage />,
+  },
+  {
+    path: "/check-out",
+    element: <CheckOut />,
+  },
+  {
+    path: "/check-out-page",
+    element: <CheckOutPage />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
+]);

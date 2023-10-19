@@ -4,8 +4,12 @@ export default {
   theme: {
     extend: {
       screens: {
-        small: { max: "320px" },
-        medium: { max: "768px" },
+        big: { max: "1430px" },
+        medium: { max: "1400px" },
+        minMedium: { max: "1300px" },
+        tablet: { max: "1100px" },
+        smallTab: { max: "450px" },
+        tinyTab: { max: "360px" },
       },
     },
   },
