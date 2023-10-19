@@ -20,9 +20,9 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/profile",
     element: (
-      <PrivateRouter>
+      // <PrivateRouter>
         <Layout />
-      </PrivateRouter>
+      // </PrivateRouter>
     ),
     children: [
       {

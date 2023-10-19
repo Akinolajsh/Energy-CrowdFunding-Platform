@@ -12,10 +12,11 @@ import Swal from "sweetalert2";
 
 const NewProfile = () => {
   const navigate = useNavigate();
-const user = useSelector((state:any) => state.user)
+  const user = useSelector((state: any) => state.user);
   const [parent] = useAutoAnimate();
   const [image, setImage] = useState<string>("");
   const [avatar, setAvatar] = useState<any>(dummy);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleImage = (e: any) => {
     const file = e.target.files[0];
@@ -40,7 +41,7 @@ const user = useSelector((state:any) => state.user)
 
   const onHandleSubmit = handleSubmit(async (data: any) => {
     const { name, phoneNumber, address } = data;
-
+    setLoading(true);
     const formData = new FormData();
 
     formData.append("name", name);
@@ -48,8 +49,7 @@ const user = useSelector((state:any) => state.user)
     formData.append("address", address);
     formData.append("avatar", image);
 
-    profileAPI(formData, user ).then((res) => {
-
+    profileAPI(formData, user).then((res) => {
       if (res) {
         Swal.fire({
           title: "Profile Succesfully Created😊",
@@ -60,7 +60,8 @@ const user = useSelector((state:any) => state.user)
             popup: "animate_animated animate_fadeOutUp",
           },
         });
-        // navigate("/");
+        setLoading(false);
+        navigate("/profile/launch");
       } else {
         navigate("/profile");
         Swal.fire({
@@ -77,8 +78,6 @@ const user = useSelector((state:any) => state.user)
     });
   });
 
-
-  
   return (
     <>
       <div className="w-full h-full flex pt-3 justify-center items-center ">

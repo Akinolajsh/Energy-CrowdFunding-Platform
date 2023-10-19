@@ -8,6 +8,7 @@ const PrivateRouter: React.FC<PropsWithChildren> = ({ children }) => {
   const dispatch = useDispatch();
 
   const user = useSelector((state: any) => state.user);
+console.log(user);
 
   useEffect(() => {
     const decode = jwtDecode(user);

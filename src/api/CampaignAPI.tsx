@@ -19,3 +19,15 @@ export const getCampaign = async () => {
     return res.data.data;
   });
 };
+
+export const getOneCampaign = async (projectID:string) => {
+  return await axios.get(`${url}/api/${projectID}/view-one-beg`).then((res) => {
+    return res.data.data;
+  });
+};
+
+// export const getCampaign = async () => {
+//   return await axios.get(`${url}/api/view-beg`).then((res) => {
+//     return res.data.data;
+//   });
+// };

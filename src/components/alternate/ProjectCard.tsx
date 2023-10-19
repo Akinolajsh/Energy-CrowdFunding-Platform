@@ -40,7 +40,7 @@ const ProjectCard: React.FC<iProps> = ({ props }) => {
           </div>
         </Link>
         <div className="w-full p-7 ">
-          <PersonProfile />
+          <PersonProfile props={props?.userID}/>
           <p
             className="w-full  hover:text-emerald-500 transition-all duration-500 my-3 font-bold text-[#001D23] text-[18px] cursor-pointer"
             onClick={onChangeState}

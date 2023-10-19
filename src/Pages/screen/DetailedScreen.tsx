@@ -11,6 +11,7 @@ import { onNewToggleState } from "../../global/globalState";
 import { FC } from "react";
 import PersonProfile from "../../components/alternate/PersonProfile";
 import { useParams } from "react-router-dom";
+import { useOneProject, useProjects } from "../../hooks/customHooks";
 
 interface iProps {
   props?: any;
@@ -24,7 +25,9 @@ const DetailedScreen: FC<iProps> = ({ props }) => {
     dispatch(onNewToggleState(!toggle));
   };
 
-  console.log(props)
+  const { data, isLoading } = useOneProject(id!)
+
+  console.log("This is Data: ",data)
   return (
     <>
       {/* <div
