@@ -3,6 +3,7 @@ import Hero from "../../components/alternate/Hero";
 import InvestmentNeeds from "../../components/alternate/InvestmentNeeds";
 import NewFooter from "../../components/alternate/NewFooter";
 import WhatWeDo from "../../components/alternate/WhatWeDo";
+import Footer from "../../components/static/Footer";
 
 const AlternatePage = () => {
   return (
@@ -12,6 +13,7 @@ const AlternatePage = () => {
       <AboutUs />
       <InvestmentNeeds />
       <NewFooter />
+      <Footer/>
     </>
   );
 };
