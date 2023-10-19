@@ -30,7 +30,7 @@ const Footer = () => {
             <div className="my-2 hover:cursor-pointer hover:text-green-500">Design</div>
           </div>
           <div className="border-white meduim:w-[300px]  meduim:pl-[15px]  w-[250px] h-[350px] ml-[75px] flex justify-center flex-col ">
-            <div className="text-white text-[25px] font-bold">Company</div>
+            <div className="text-white font-bold text-[25px]">Company</div>
             <div className="my-2 hover:cursor-pointer hover:text-green-500 mt-5">Testimonials</div>
             <div className="my-2 hover:cursor-pointer hover:text-green-500">About Us</div>
             <div className="my-2 hover:cursor-pointer hover:text-green-500">Latest Events</div>
