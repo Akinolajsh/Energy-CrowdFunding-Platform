@@ -8,20 +8,21 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import dummy from "../../assets/image1.jfif";
 import { profileAPI } from "../../api/ProfileAPI";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const NewProfile = () => {
   const navigate = useNavigate();
 const user = useSelector((state:any) => state.user)
   const [parent] = useAutoAnimate();
 
-  const [avatar, setAvatar] = useState<string>("");
-  const [image, setImage] = useState<any>();
+  const [image, setImage] = useState<string>("");
+  const [avatar, setAvatar] = useState<any>(dummy);
 
   const handleImage = (e: any) => {
     const file = e.target.files[0];
     const saveImage = URL.createObjectURL(file);
-    setAvatar(saveImage);
     setImage(file);
+    setAvatar(saveImage);
   };
 
   const model = yup.object({
@@ -46,13 +47,39 @@ const user = useSelector((state:any) => state.user)
     formData.append("name", name);
     formData.append("phoneNumber", phoneNumber);
     formData.append("address", address);
-    formData.append("avatar", avatar);
+    formData.append("avatar", image);
 
-    profileAPI(formData, user).then(() => {
-      navigate("/")
-    })
+    profileAPI(formData, user ).then((res) => {
+
+      if (res) {
+        Swal.fire({
+          title: "Profile Succesfully Created😊",
+          showClass: {
+            popup: "animate_animated animate_fadeInDown",
+          },
+          hideClass: {
+            popup: "animate_animated animate_fadeOutUp",
+          },
+        });
+        // navigate("/");
+      } else {
+        navigate("/profile");
+        Swal.fire({
+          title: "Error Occured While Creating Profile 😢😢",
+          showClass: {
+            popup: "animate_animated animate_fadeInDown",
+          },
+          icon: "error",
+          hideClass: {
+            popup: "animate_animated animate_fadeOutUp",
+          },
+        });
+      }
+    });
   });
 
+
+  
   return (
     <>
       <div className="w-full h-full flex pt-3 justify-center items-center ">
@@ -66,7 +93,7 @@ const user = useSelector((state:any) => state.user)
           <div className="relative w-[250px]">
             <img
               className="h-[250px] w-[250px] rounded-full border-[#001d23] object-cover border-[2px]"
-              src={dummy}
+              src={avatar}
             />
             <input
               id="image"

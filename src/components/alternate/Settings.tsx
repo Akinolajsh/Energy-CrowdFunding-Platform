@@ -2,8 +2,12 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
+
+  const navigate= useNavigate()
+
   const [parent] = useAutoAnimate();
   const schema = yup.object({
     phoneNumber: yup.string().required(),
@@ -20,6 +24,8 @@ const Settings = () => {
 
   const onHandleSubmit = handleSubmit(async (data) => {
     console.log(data);
+
+    navigate("/")
   });
 
   const validateInput = (e: any) => {
@@ -29,11 +35,13 @@ const Settings = () => {
     input.value = inputValue.replace(/\D/g, "");
   };
 
+
+
   return (
     <>
       <div className="w-full h-full flex justify-center items-center">
         <form
-          onClick={onHandleSubmit}
+          onSubmit={onHandleSubmit}
           className="w-[500px] flex flex-col mt-24 items-center py-5 px-5 shadow-2xl h-[340px] border"
         >
           <div className="text-[#001d23] font-bold text-[30px]">

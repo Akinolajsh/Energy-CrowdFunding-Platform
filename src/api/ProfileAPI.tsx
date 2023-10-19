@@ -19,6 +19,19 @@ export const profileAPI = async (data: any, userID:string) => {
       console.log(error);
     }
   };
+
+
+export const updateProfileAPI = async (data: any, profileID:string) => {
+    try {
+
+      return await axios.patch(`${url}/api/${profileID}/update-profile`, data).then((res: any) => {
+        console.log(res.data.data)
+        return res.data.data;
+      });
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
   
 
 

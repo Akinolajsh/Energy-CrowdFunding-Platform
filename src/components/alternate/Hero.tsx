@@ -11,14 +11,12 @@ const Hero = () => {
   return (
     <>
       <div className="w-full min-h-[100vh] bg-[#e6fdb7] p-5">
-        <hr className="w-full my-5 border" />
         <span className="flex items-center text-[#001D23] font-bold  w-full justify-center">
           <HiLightBulb className="text-[80px] tablet:text-[50px]" />
           <span className="text-[60px] tablet:text-[40px]">
             eco<span className="text-emerald-500">Funds</span>
           </span>
         </span>
-        <hr className="w-full  border" />
         <div className="w-full relative h-full justify-center py-5 items-center flex-col flex">
           <img src={heroImg} className="absolute blur-sm left-0" alt="" />
           <img src={heroImg1} className="absolute right-0 blur-sm" alt="" />

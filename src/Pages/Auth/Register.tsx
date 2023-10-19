@@ -136,7 +136,7 @@ const Register = () => {
           <div className=" text-[15px] small:text-[10px]">
             Or Register With Google
           </div>
-          <div className="bg-rose-400  rounded-[50%] text-white flex justify-center small:h-[30px] h-[40px] w-[40px] items-center small:w-[30px]">
+          <div className="bg-rose-400  rounded-[50%] text-white flex justify-center small:h-[30px] h-[40px] w-[40px] items-center small:w-[30px] hover:cursor-pointer">
             <BsGoogle />
           </div>
           <hr className="w-[90px] small:w-[35px]" />
