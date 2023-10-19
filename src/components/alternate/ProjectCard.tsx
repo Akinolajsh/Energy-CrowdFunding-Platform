@@ -1,9 +1,13 @@
 import { FaCalendarDay } from "react-icons/fa";
 import imgs from "../../assets/hero-one-big.jpg";
+import { useNavigate } from "react-router-dom";
 const ProjectCard = () => {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="w-[350px] m-2 min-h-[550px] bg-white">
+      <div className="w-[350px]  m-2 min-h-[550px] bg-white" onClick={() => {
+navigate("/")
+      }}>
         <div className="w-full relative h-[250px]">
           <div className="overflow-hidden h-full w-full">
             <img

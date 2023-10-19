@@ -12,6 +12,7 @@ import Projects from "../components/alternate/Projects";
 import Campaign from "../components/alternate/Campaign";
 import CheckOut from "../components/alternate/Checkout";
 import CheckOutPage from "../components/alternate/CheckOutPage";
+import ErrorScreen from "../error/js/Error";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -79,4 +80,8 @@ export const mainRoute = createBrowserRouter([
     path: "/check-out-page",
     element: <CheckOutPage />,
   },
+  {
+    path: "*",
+    element: <ErrorScreen />,
+  }
 ]);

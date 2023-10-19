@@ -1,11 +1,11 @@
 import { FaCamera } from "react-icons/fa";
-import imags from "../../assets/hero-one-small-2.jpg";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import dummy from "../../assets/image1.jfif";
 
 const NewProfile = () => {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const NewProfile = () => {
           <div className="relative w-[250px]">
             <img
               className="h-[250px] w-[250px] rounded-full border-[#001d23] object-cover border-[2px]"
-              src={imags}
+              src={dummy}
             />
             <input
               id="image"
@@ -81,7 +81,7 @@ const NewProfile = () => {
               <input
                 type="text"
                 placeholder="enter your name"
-                className="w-full pl-2 smallTab:text-[12px] border h-[40px]"
+                className="w-full pl-2 border h-[40px] outline-none"
                 {...register("name")}
               />
               <div ref={parent} className="text-rose-400 text-[13px]">
@@ -93,10 +93,13 @@ const NewProfile = () => {
               <input
                 type="text"
                 placeholder="telephone"
-                className="w-full pl-2 smallTab:text-[12px]  border h-[40px]"
+                className="w-full pl-2 border h-[40px] outline-none"
                 {...register("phoneNumber")}
               />
-              <div ref={parent} className="text-rose-400 flex w-full justify-end text-[13px]">
+              <div
+                ref={parent}
+                className="text-rose-400 flex w-full justify-end text-[13px]"
+              >
                 {errors?.phoneNumber?.message}
               </div>
             </div>
@@ -105,10 +108,13 @@ const NewProfile = () => {
             <input
               type="text"
               placeholder="enter your address"
-              className="w-full pl-2 border smallTab:text-[12px] h-[40px]"
+              className="w-full pl-2 border h-[40px] outline-none"
               {...register("address")}
             />
-            <div ref={parent} className="text-rose-400 flex w-full justify-center text-[13px]">
+            <div
+              ref={parent}
+              className="text-rose-400 flex w-full justify-center text-[13px]"
+            >
               {errors?.address?.message}
             </div>
           </div>
