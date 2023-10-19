@@ -5,9 +5,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const NewProfile = () => {
   const navigate = useNavigate();
+
+  const [parent] = useAutoAnimate();
 
   const [avatar, setAvatar] = useState<string>("");
   const [image, setImage] = useState<any>();
@@ -33,7 +36,7 @@ const NewProfile = () => {
     resolver: yupResolver(model),
   });
 
-  const onHandleSubmit = async (data: any) => {
+  const onHandleSubmit = handleSubmit(async (data: any) => {
     const { name, phoneNumber, address } = data;
 
     const formData = new FormData();
@@ -42,11 +45,7 @@ const NewProfile = () => {
     formData.append("phoneNumber", phoneNumber);
     formData.append("address", address);
     formData.append("avatar", avatar);
-
-
-
-    
-  };
+  });
 
   return (
     <>
@@ -77,18 +76,17 @@ const NewProfile = () => {
             </label>
           </div>
           <div className="w-full my-3 flex justify-between">
-            <div className="w-[48%]">
+            <div className="w-[48%] ">
               <p className="capitalize">Name</p>
               <input
                 type="text"
                 placeholder="enter your name"
                 className="w-full pl-2 border h-[40px]"
-                required
                 {...register("name")}
               />
-              <span className="text-rose-400 text-[13px]">
+              <div ref={parent} className="text-rose-400 text-[13px]">
                 {errors?.name?.message}
-              </span>
+              </div>
             </div>
             <div className="w-[48%]">
               <p className="capitalize">phone number</p>
@@ -96,12 +94,11 @@ const NewProfile = () => {
                 type="text"
                 placeholder="telephone"
                 className="w-full pl-2 border h-[40px]"
-                required
                 {...register("phoneNumber")}
               />
-              <span className="text-rose-400 flex w-full justify-end text-[13px]">
+              <div ref={parent} className="text-rose-400 flex w-full justify-end text-[13px]">
                 {errors?.phoneNumber?.message}
-              </span>
+              </div>
             </div>
           </div>
           <div className="w-full my-2">
@@ -109,12 +106,11 @@ const NewProfile = () => {
               type="text"
               placeholder="enter your address"
               className="w-full pl-2 border h-[40px]"
-              required
               {...register("address")}
             />
-            <span className="text-rose-400 flex w-full justify-center text-[13px]">
+            <div ref={parent} className="text-rose-400 flex w-full justify-center text-[13px]">
               {errors?.address?.message}
-            </span>
+            </div>
           </div>
           <button
             className="capitalize w-full py-3 bg-emerald-500 text-white font-bold hover:bg-[#001d23] transition-all duration-500"
