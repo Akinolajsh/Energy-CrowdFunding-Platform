@@ -4,8 +4,8 @@ import imags from "../../assets/hero-one-small-2.jpg";
 const NewProfile = () => {
   return (
     <>
-      <div className="w-full h-full flex pt-3 justify-center items-center">
-        <form className="w-[500px] flex flex-col items-center py-5 px-5 shadow-2xl h-[570px] border">
+      <div className="w-full h-full flex justify-center items-center">
+        <form className="w-[500px] flex flex-col mt-20 items-center py-5 px-5 shadow-2xl h-[570px] border">
           <div className="text-[#001d23] font-bold text-[30px]">
             Your Information
           </div>
