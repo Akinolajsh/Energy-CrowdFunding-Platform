@@ -71,15 +71,33 @@ const Footer = () => {
               Contact Us
             </div>
           </div>
+          <div className="border-white meduim:w-[300px]  meduim:pl-[15px]  w-[250px] h-[350px] ml-[75px] flex justify-center flex-col ">
+            <div className="text-white font-bold text-[25px]">Company</div>
+            <div className="my-2 hover:cursor-pointer hover:text-green-500 mt-5">
+              Testimonials
+            </div>
+            <div className="my-2 hover:cursor-pointer hover:text-green-500">
+              About Us
+            </div>
+            <div className="my-2 hover:cursor-pointer hover:text-green-500">
+              Latest Events
+            </div>
+            <div className="my-2 hover:cursor-pointer hover:text-green-500">
+              How it works
+            </div>
+            <div className="my-2 hover:cursor-pointer hover:text-green-500">
+              Contact Us
+            </div>
+          </div>
         
         </div>
-        <div className="w-[85%] h-[80px] bg-black mb-6 px-5 flex justify-between meduim:flex-col">
+        <div className="w-[85%] h-[80px]  mb-6 px-5 flex justify-between meduim:flex-col">
           <div className="flex text-white items-center">
             <AiOutlineCopyrightCircle />
-            <div className="ml-2">Gavias. All Rights Reserved</div>
+            <div className="ml-2">All Rights Reserved</div>
           </div>
-          <div className="w-[150px] flex justify-between items-center text-[25px] text-white">
-            <AiOutlineTwitter />
+          <div className="w-[150px] flex justify-between items-center text-[25px] text-white hover:cursor-pointer">
+            <AiOutlineTwitter  />
             <BsFacebook />
             <AiOutlineInstagram />
             <AiFillLinkedin />
