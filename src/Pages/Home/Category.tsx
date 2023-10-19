@@ -8,8 +8,8 @@ import { LuUtilityPole } from "react-icons/lu";
 
 const Category = () => {
   return (
-    <div className="h-[600px] w-full flex justify-center bg-slate-50">
-      <div className="w-[90%] h-[100%] flex flex-col  items-center flex-wrap">
+    <div className="h-[650px] w-full flex justify-center bg-slate-50 small:h-[1000px]">
+      <div className="  w-[85%] h-[100%] flex flex-col  items-center flex-wrap  gap-4 ">
         <div className=" flex-col mt-3  small:flex justify-center items-center ">
           <div className="text-[#02A95C] small:text-[15px] text-[35px] flex justify-center items-center">What we do</div>
           <div className="small:text-[25px] font-bold capitalize text-[35px]">
@@ -30,7 +30,7 @@ const Category = () => {
           <CategoryCard
             icon={<GiChemicalTank />}
             title="Chemical"
-            content="Biochemical,Catalysis & Chemical Kinetics"
+            content="Biochemical,Catalysis & Chemical "
           />
           <CategoryCard
             icon={<GiWorld />}

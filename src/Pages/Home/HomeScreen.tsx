@@ -1,10 +1,14 @@
+import Category from './Category'
 import Hero from './Hero'
+import Testimony from './Testimony'
 
 const HomeScreen = () => {
   return (
-    <div>
+    <>
         <Hero/>
-    </div>
+        <Category/>
+        <Testimony/>
+    </>
   )
 }
 
