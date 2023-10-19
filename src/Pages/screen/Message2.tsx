@@ -9,8 +9,10 @@ const MessagePage = () => {
               eco<span className="text-emerald-500">Funds</span>
             </span>
           </span>
-        <div className="text-[60px]  medium:text-[20px]">Welcome to our Platform </div>
-        <a href="https://mail.google.com" className="text-emerald-500 text-[30px]  medium:text-[20px]">Go to gmail to verify</a>
+        <div className="text-[60px]  medium:text-[20px]">You're almost done</div>
+       <div className="text-[20px] ">
+       Click <a href="https://mail.google.com" className="text-emerald-600 text-[20px]  medium:text-[20px]">here</a> to get password reset link
+       </div>
     </div>
   )
 }
