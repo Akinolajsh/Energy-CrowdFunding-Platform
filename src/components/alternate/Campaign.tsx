@@ -12,14 +12,14 @@ const Campaign = () => {
   const navigate = useNavigate();
   const user = useSelector((state: any) => state.user);
 
-  const [avatar, setAvatar] = useState<string>("");
-  const [image, setImage] = useState<any>();
+  const [image, setImage] = useState<string>("");
+  const [avatar, setAvatar] = useState<any>(dummy);
 
   const handleImage = (e: any) => {
     const file = e.target.files[0];
     const saveImage = URL.createObjectURL(file);
-    setAvatar(saveImage);
     setImage(file);
+    setAvatar(saveImage);
   };
 
   const model = yup.object({
@@ -35,7 +35,7 @@ const Campaign = () => {
   });
 
   const onHandleSubmit = handleSubmit(async (data: any) => {
-    const { title, amountNeeded, motivation, description, category } = data;
+    const { title, amountNeeded, motivation, description,category } = data;
 
     const formdata: any = new FormData();
     formdata.append("title", title);
@@ -44,6 +44,7 @@ const Campaign = () => {
     formdata.append("description", description);
     formdata.append("category", category);
     formdata.append("image", image);
+    formdata.append("category", category);
 
     console.log("first: ", formdata);
 
@@ -91,13 +92,12 @@ const Campaign = () => {
               className="hidden"
               onChange={handleImage}
             />
-            <img src={dummy} className="object-cover w-full h-full" />
+            <img src={avatar} className="object-cover w-full h-full" />
           </label>
         </div>
 
-        <select
-          {...register("category")}
-          className="mt-5 border w-full h-[40px] outline-none rounded-md"
+        <select className="mt-5 border w-full h-[40px] outline-none rounded-md"
+        {...register("category")}
         >
           <option value="">Select Category</option>
           <option value="Solar Energy">Solar Energy</option>

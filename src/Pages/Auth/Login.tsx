@@ -126,25 +126,27 @@ const Login = () => {
           <span className="text-[12px] text-rose-400 capitalize flex mt-3 w-full">
             <Link to={`/reset-password`}>forgot password</Link>
           </span>
-          <button
-            type="submit"
-            className="hover:bg-[#001d23] bg-emerald-500 transition-all duration-300 font-bold h-[50px] w-full mt-5 text-white text-[20px] rounded-md "
-          >
-            Login
-          </button>
+        <button
+          type="submit"
+          className="hover:bg-[#001d23] bg-emerald-500 transition-all duration-300 font-bold h-[50px] w-full mt-5 text-white text-[20px] rounded-md "
 
-          {/* social */}
+       
+        >
+          Login
+        </button>
 
-          <div className="mt-3 flex  justify-between items-center  w-full ">
-            <hr className="w-[90px] small:w-[35px] text-black" />
-            <div className=" text-[15px] small:text-[10px]">
-              Or Login With Google
-            </div>
-            <div className="bg-rose-400  rounded-[50%] text-white flex justify-center small:h-[30px] h-[40px] w-[40px] items-center small:w-[30px]">
-              <BsGoogle />
-            </div>
-            <hr className="w-[90px] small:w-[35px]" />
+        {/* social */}
+
+        <div className="mt-3 flex  justify-between items-center  w-full ">
+          <hr className="w-[90px] small:w-[35px] text-black" />
+          <div className=" text-[15px] small:text-[10px]">
+            Or Login With Google
           </div>
+          <div className="bg-rose-400  rounded-[50%] text-white flex justify-center small:h-[30px] h-[40px] w-[40px] items-center small:w-[30px] hover:cursor-pointer">
+            <BsGoogle />
+          </div>
+          <hr className="w-[90px] small:w-[35px]" />
+        </div>
 
           <div className="flex mt-5 small:text-[10px] text-[14px] justify-center items-center">
             <div className="mx-2 ">Already have an account?</div>

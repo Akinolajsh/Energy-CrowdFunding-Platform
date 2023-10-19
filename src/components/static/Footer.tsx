@@ -23,13 +23,12 @@ const Footer = () => {
               <div className="text-white text-[20px] font-bold">
                 Join Newsletters
               </div>
-              <div className="relative">
+              <div className="">
                 <input
                   className="w-[240px] h-[60px] rounded-[30px] border pl-4 mt-5 "
                   placeholder="Email Address"
                   type="text"
                 ></input>
-                <div className="w-[35px] h-[35px] rounded-[50%] bg-green-500 absolute right-12 bottom-4"></div>
               </div>
             </div>
           </div>
