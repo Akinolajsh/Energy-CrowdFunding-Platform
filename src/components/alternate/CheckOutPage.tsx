@@ -1,4 +1,43 @@
+import { useState } from "react";
+import { usePaystackPayment } from "react-paystack";
+
 const CheckOutPage = () => {
+
+  const validateInput = (e: any) => {
+    const input = e.target;
+    const inputValue = input.value;
+
+    input.value = inputValue.replace(/\D/g, "");
+  };
+
+  const change = (numb: number) => {
+    const w = numb.toString();
+    const x = w.split(".");
+    x[0] = x[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    return x.join(".");
+  };
+
+  const [state, setState] = useState<number | any>(0)
+  const [email, setEmail] = useState<string | any>("")
+
+  const config:any ={
+    reference: new Date().getTime().toString(),
+    email: email,
+    amount: state * 100,
+    publicKey: "pk_test_5a0581a5d3a5e4eff176456546f8e4b3f32d2d01",
+  }
+
+  const onSuccess: any = (reference: any) => {
+    console.log(reference);
+  };
+
+  const onClose = () => {
+    console.log("closed");
+  };
+
+  const initializePayment = usePaystackPayment(config);
+
   return (
     <>
       <div className="w-full flex items-center justify-center h-[100vh] bg-[#001d23]">
@@ -9,8 +48,14 @@ const CheckOutPage = () => {
             <div className="flex font-bold text-[30px] border-t-[1px] items-center border-b-[1px]">
               <span>₦</span>
               <input
-                type="number"
+                type="text"
                 className="h-[100%] w-[85%] pl-[20px] outline-none text-[30px] text-right appearance-none focus:border-indigo-500"
+                onInput={validateInput}
+                onChange={(e:any)=>{
+                  setState(e.target.value)
+                }}
+                
+                maxLength={7}
               />
               <div className="font-bold">
                 <span className="mb-[10px]"> .</span>00
@@ -22,6 +67,9 @@ const CheckOutPage = () => {
                 type="email"
                 className="w-full h-[50px] outline-none pl-2 border"
                 placeholder="@gmail.com"
+                onChange={(e:any)=>{
+                  setEmail(e.target.value);
+                }}
               />
             </div>
             <div className="w-full my-5">
@@ -32,7 +80,7 @@ const CheckOutPage = () => {
                 <div>
                   <input
                     type="radio"
-                    className="outline-none mr-3 pl-2 border"
+                    className="outline-none mr-3 pl-2 border hover:cursor-pointer duration-500 transition-all"
                     placeholder="@gmail.com"
                   />
                   <span className="text-[#001d23] font-bold">PayStack</span>
@@ -41,10 +89,14 @@ const CheckOutPage = () => {
               <div className="border-t-[1px] h-[50px] justify-between items-center capitalize text-[#001d23] font-bold flex my-4 w-full">
                 <span>your donation</span>
                 <div className="flex justify-end font-bold text-[20px] ">
-                  ₦.00
+                  ₦{change(state)}.00
                 </div>
               </div>
-              <button className="hover:bg-[#001d23] transition-all duration-300 bg-emerald-500 text-white font-bold w-full h-[50px]">
+              <button className="hover:bg-[#001d23] transition-all duration-300 bg-emerald-500 text-white font-bold w-full h-[50px]"
+              onClick={()=>{
+                initializePayment(onSuccess, onClose)
+              }}
+              >
                 Pay in with PayStack
               </button>
               <span className="text-slate-500 text-[13px] text-center flex justify-center mt-3">

@@ -35,7 +35,7 @@ const PopOutScreen = () => {
             <Link to={`/profile/projects`}>Projects</Link>
           </span>
           <span className="cursor-pointer hover:bg-[#001d23] hover:text-white transition-all duration-500 py-2">
-            <Link to={`/profile/launch`}>Compaign</Link>
+            <Link to={`/profile/launch`}>Campaign</Link>
           </span>
         </div>
       </div>
