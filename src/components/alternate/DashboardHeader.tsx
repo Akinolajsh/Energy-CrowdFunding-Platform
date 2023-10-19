@@ -34,7 +34,7 @@ const DashboardHeader = () => {
               <Link to={`/profile/projects`}>Projects</Link>
             </span>
             <span className="cursor-pointer hover:scale-[1.09] mx-5">
-              <Link to={`/profile/launch`}>Compaign</Link>
+              <Link to={`/profile/launch`}>Campaign</Link>
             </span>
           </div>
           <button className="px-10 tablet:hidden tablet:p-3 py-3 border-white border-[1px] rounded hover:scale-[1.09] transition-all duration-300">

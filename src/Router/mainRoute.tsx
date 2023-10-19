@@ -14,11 +14,16 @@ import CheckOut from "../components/alternate/Checkout";
 import CheckOutPage from "../components/alternate/CheckOutPage";
 import ErrorScreen from "../error/js/Error";
 import DetailedScreen from "../Pages/screen/DetailedScreen";
+import PrivateRouter from "./PrivateRouter";
 
 export const mainRoute = createBrowserRouter([
   {
     path: "/profile",
-    element: <Layout />,
+    element: (
+      <PrivateRouter>
+        <Layout />
+      </PrivateRouter>
+    ),
     children: [
       {
         index: true,
@@ -72,10 +77,6 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/message",
     element: <MessagePage />,
-  },
-  {
-    path: "/check-out",
-    element: <CheckOut />,
   },
   {
     path: "/check-out-page",

@@ -3,10 +3,16 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useNavigate } from "react-router-dom";
+import { updateProfileAPI } from "../../api/ProfileAPI";
+import { useSelector } from "react-redux";
 
 const Settings = () => {
 
   const navigate= useNavigate()
+
+  const user= useSelector((state:any)=> state.user)
+
+
 
   const [parent] = useAutoAnimate();
   const schema = yup.object({
@@ -23,9 +29,12 @@ const Settings = () => {
   });
 
   const onHandleSubmit = handleSubmit(async (data) => {
-    console.log(data);
+    
+    updateProfileAPI(data, user).then((res)=>{
+      
+      navigate("/")
+    })
 
-    navigate("/")
   });
 
   const validateInput = (e: any) => {
