@@ -48,7 +48,7 @@ const ChangePassword = () => {
   });
 
   return (
-    <div className="h-[100vh] w-full bg-emerald-500 flex justify-center ">
+    <div className="h-[100vh] items-center w-full bg-[#001d23] flex justify-center ">
       <form
         onSubmit={onHandleSubmit}
         className="h-[320px] rounded-md text-slate-400 w-[500px] border mt-10 flex flex-col  items-center bg-white p-10"
@@ -87,7 +87,7 @@ const ChangePassword = () => {
 
         <button
           type="submit"
-          className="bg-[#7FD096] h-[50px] w-full mt-5 text-white text-[20px] rounded-md"
+          className="hover:bg-[#001d23] bg-emerald-500 transition-all duration-300 h-[50px] w-full mt-5 text-white text-[20px] rounded-md"
         >
           Change Password
         </button>

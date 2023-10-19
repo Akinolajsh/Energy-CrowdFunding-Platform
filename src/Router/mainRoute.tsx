@@ -10,20 +10,34 @@ import Category from "../Pages/Home/Category";
 import MessagePage from "../Pages/screen/MessagePage";
 import AlternatePage from "../Pages/screen/AlternatePage";
 import Profile from "../Pages/Home/Profile";
+import Dashboard from "../components/alternate/Dashboard";
+import NewProfile from "../components/alternate/NewProfile";
+import Settings from "../components/alternate/Settings";
+import Projects from "../components/alternate/Projects";
 
 export const mainRoute = createBrowserRouter([
   {
-    path: "/",
+    path: "/profile",
     element: <Layout />,
     children: [
       {
         index: true,
-        element: <HomeScreen />,
+        element: <NewProfile />,
+      },
+      {
+        index: true,
+        path: "/profile/settings",
+        element: <Settings />,
+      },
+      {
+        index: true,
+        path: "/profile/projects",
+        element: <Projects />,
       },
     ],
   },
   {
-    path: "/alternate",
+    path: "/",
     element: <AlternatePage />,
   },
   {
@@ -62,8 +76,12 @@ export const mainRoute = createBrowserRouter([
     path: "/message",
     element: <MessagePage />,
   },
+  // {
+  //   path: "/profile",
+  //   element: <Profile />,
+  // },
   {
-    path: "/profile",
-    element: <Profile />,
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);

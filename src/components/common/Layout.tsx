@@ -1,16 +1,13 @@
-
-import Footer from '../static/Footer'
-import Header from '../static/Header'
-import { Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
+import DashboardHeader from "../alternate/DashboardHeader";
 
 const Layout = () => {
   return (
     <div>
-        <Header/>
-        <Outlet/>
-        <Footer/>
+      <DashboardHeader />
+      <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
