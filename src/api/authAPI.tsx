@@ -1,9 +1,7 @@
 import axios from "axios";
 
 
-const url:string= "http://localhost:1000"
-// 
-// const url:string= "https://2516-105-113-32-86.ngrok.io"
+const url:string= "https://eco-fund-be.onrender.com"
 
 export const registerAPI = async (data: any) => {
   try {

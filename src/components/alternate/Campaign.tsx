@@ -6,13 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { createCampaign } from "../../api/CampaignAPI";
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux";
 
 const Campaign = () => {
   const navigate = useNavigate();
-  const user = useSelector((state:any) => state.user)
-
-
+  const user = useSelector((state: any) => state.user);
 
   const [avatar, setAvatar] = useState<string>("");
   const [image, setImage] = useState<any>();
@@ -29,6 +27,7 @@ const Campaign = () => {
     amountNeeded: yup.number().required(),
     motivation: yup.string().required(),
     description: yup.string().required(),
+    category: yup.string().required(),
   });
 
   const { register, handleSubmit } = useForm({
@@ -36,19 +35,19 @@ const Campaign = () => {
   });
 
   const onHandleSubmit = handleSubmit(async (data: any) => {
-    const { title, amountNeeded, motivation, description } = data;
+    const { title, amountNeeded, motivation, description, category } = data;
 
-    const formdata:any = new FormData();
+    const formdata: any = new FormData();
     formdata.append("title", title);
     formdata.append("motivation", motivation);
     formdata.append("amountNeeded", amountNeeded);
     formdata.append("description", description);
+    formdata.append("category", category);
     formdata.append("image", image);
 
-    console.log("first", formdata);
+    console.log("first: ", formdata);
 
-    createCampaign(formdata, user ).then((res) => {
-
+    createCampaign(formdata, user).then((res) => {
       if (res) {
         Swal.fire({
           title: "Campaign Succesfully Created😊",
@@ -59,9 +58,8 @@ const Campaign = () => {
             popup: "animate_animated animate_fadeOutUp",
           },
         });
-        navigate("/");
+        navigate("/profile/projects");
       } else {
-        navigate("/profile/launch");
         Swal.fire({
           title: "Error occured while creating campaign 😢😢",
           showClass: {
@@ -97,7 +95,10 @@ const Campaign = () => {
           </label>
         </div>
 
-        <select className="mt-5 border w-full h-[40px] outline-none rounded-md">
+        <select
+          {...register("category")}
+          className="mt-5 border w-full h-[40px] outline-none rounded-md"
+        >
           <option value="">Select Category</option>
           <option value="Solar Energy">Solar Energy</option>
           <option value="Geothermal Energy">Geothermal Energy</option>
