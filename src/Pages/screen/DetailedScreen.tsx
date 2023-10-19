@@ -51,7 +51,7 @@ const DetailedScreen = () => {
                             <div>pledged</div>
                     </div>
                 </div>
-                <div className="w-[200px] h-[50px] bg-green-500 flex justify-center items-center shadow-md">Back Campaign</div>
+                <div className="w-[200px] h-[50px] bg-green-500 flex justify-center shadow-md items-center">Back Campaign</div>
             </div>
             </div>
 
