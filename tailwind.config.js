@@ -8,6 +8,7 @@ export default {
         medium: { max: "1400px" },
         minMedium: { max: "1300px" },
         tablet: { max: "1100px" },
+        timeLine: { max: "700px" },
         smallTab: { max: "450px" },
         tinyTab: { max: "360px" },
       },

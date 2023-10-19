@@ -6,6 +6,7 @@ import PersonProfile from "./PersonProfile";
 import { useDispatch, useSelector } from "react-redux";
 import { onNewToggleState } from "../../global/globalState";
 import DetailedScreen from "../../Pages/screen/DetailedScreen";
+import { useState } from "react";
 
 interface iProps {
   props: any;
@@ -14,15 +15,19 @@ interface iProps {
 const ProjectCard: React.FC<iProps> = ({ props }) => {
   const dispatch = useDispatch();
   const toggle = useSelector((state: any) => state.newToggle);
+  const [propsState, setPropsState] = useState<any>();
   const onChangeState = () => {
     dispatch(onNewToggleState(!toggle));
   };
   return (
     <>
-      {toggle && <DetailedScreen />}
+      {toggle && <DetailedScreen props={propsState}/>}
       <div
         className="w-[350px]  m-2 min-h-[550px] bg-white"
-        onClick={onChangeState}
+        onClick={() => {
+          setPropsState(props)
+          onChangeState()
+        }}
       >
         <div className="w-full relative h-[250px]">
           <div className="overflow-hidden h-full w-full">
