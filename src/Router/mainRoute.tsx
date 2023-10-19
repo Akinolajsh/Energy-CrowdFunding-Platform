@@ -9,7 +9,9 @@ import AlternatePage from "../Pages/screen/AlternatePage";
 import NewProfile from "../components/alternate/NewProfile";
 import Settings from "../components/alternate/Settings";
 import Projects from "../components/alternate/Projects";
-import Compaign from "../components/alternate/Compaign";
+import Campaign from "../components/alternate/Campaign";
+import CheckOut from "../components/alternate/Checkout";
+import CheckOutPage from "../components/alternate/CheckOutPage";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -33,7 +35,7 @@ export const mainRoute = createBrowserRouter([
       {
         index: true,
         path: "/profile/launch",
-        element: <Compaign />,
+        element: <Campaign />,
       },
     ],
   },
@@ -68,5 +70,13 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/message",
     element: <MessagePage />,
+  },
+  {
+    path: "/check-out",
+    element: <CheckOut />,
+  },
+  {
+    path: "/check-out-page",
+    element: <CheckOutPage />,
   },
 ]);
