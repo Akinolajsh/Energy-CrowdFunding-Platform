@@ -4,16 +4,15 @@ import Register from "../Pages/Auth/Register";
 import Login from "../Pages/Auth/Login";
 import Resetpassword from "../Pages/Auth/ResetPassword";
 import ChangePassword from "../Pages/Auth/ChangePassword";
-import Testimony from "../Pages/Home/Testimony";
-import Category from "../Pages/Home/Category";
 import MessagePage from "../Pages/screen/MessagePage";
 import AlternatePage from "../Pages/screen/AlternatePage";
-import Dashboard from "../components/alternate/Dashboard";
 import NewProfile from "../components/alternate/NewProfile";
 import Settings from "../components/alternate/Settings";
 import Projects from "../components/alternate/Projects";
-import Compaign from "../components/alternate/Compaign";
-import DetailedScreen from "../Pages/screen/DetailedScreen";
+import Campaign from "../components/alternate/Campaign";
+import CheckOut from "../components/alternate/Checkout";
+import CheckOutPage from "../components/alternate/CheckOutPage";
+import ErrorScreen from "../error/js/Error";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -37,7 +36,7 @@ export const mainRoute = createBrowserRouter([
       {
         index: true,
         path: "/profile/launch",
-        element: <Compaign />,
+        element: <Campaign />,
       },
     ],
   },
@@ -70,27 +69,19 @@ export const mainRoute = createBrowserRouter([
     element: <ChangePassword />,
   },
   {
-    path: "/testimony",
-    element: <Testimony />,
-  },
-  {
-    path: "/category",
-    element: <Category />,
-  },
-  {
-    path: "/detailed",
-    element: <DetailedScreen />,
-  },
-  {
     path: "/message",
     element: <MessagePage />,
   },
-  // {
-  //   path: "/profile",
-  //   element: <Profile />,
-  // },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: "/check-out",
+    element: <CheckOut />,
   },
+  {
+    path: "/check-out-page",
+    element: <CheckOutPage />,
+  },
+  {
+    path: "*",
+    element: <ErrorScreen />,
+  }
 ]);

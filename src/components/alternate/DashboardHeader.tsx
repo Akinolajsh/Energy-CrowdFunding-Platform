@@ -1,14 +1,26 @@
 import { Link } from "react-router-dom";
 import img1 from "../../assets/hero-one-big.jpg";
+import { AiOutlineLogout } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { onToggleState } from "../../global/globalState";
+import PopOutScreen from "./PopOutScreen";
 
 const DashboardHeader = () => {
+  const toggle = useSelector((state: any) => state.toggle);
+  const dispatch = useDispatch();
+  const onChangeToggle = () => {
+    dispatch(onToggleState(!toggle));
+  };
+
   return (
     <>
-      <div className="flex text-white w-full relative h-[100px]">
+      <div className="flex text-white z-10 w-full fixed h-[70px]">
         <img src={img1} className="object-cover w-full absolute h-full" />
         <div className="absolute justify-between z-40 bg-opacity-10 shadow-md p-3 flex items-center backdrop-blur-3xl w-full h-full">
-          <p className="text-[40px]  tablet:text-[30px]">Person's Name Dashboard</p>
-          <div className="flex items-center ml-5">
+          <p className="text-[35px]  tablet:text-[30px] smallTab:text-[15px]">
+            Person's Name Dashboard
+          </p>
+          <div className="flex tablet:hidden items-center ml-5">
             <span className="cursor-pointer hover:scale-[1.09] mx-5">
               <Link to={`/profile`}>Profile</Link>
             </span>
@@ -22,14 +34,15 @@ const DashboardHeader = () => {
               <Link to={`/profile/launch`}>Compaign</Link>
             </span>
           </div>
-          <button
-            type="submit"
-            className="px-10 py-3 border-white border-[1px] rounded hover:scale-[1.09] transition-all duration-300"
-          >
-            logOut
+          <button className="px-10 tablet:hidden tablet:p-3 py-3 border-white border-[1px] rounded hover:scale-[1.09] transition-all duration-300">
+            <span className="">logOut</span>
+          </button>
+          <button onClick={onChangeToggle} className="px-10 hidden tablet:flex tablet:p-3 py-3 border-white border-[1px] rounded hover:scale-[1.09] transition-all duration-300">
+            <AiOutlineLogout className="" />
           </button>
         </div>
       </div>
+      {toggle && <PopOutScreen />}
     </>
   );
 };
