@@ -11,12 +11,13 @@ const DashboardHeader = () => {
   const onChangeToggle = () => {
     dispatch(onToggleState(!toggle));
   };
+
   return (
     <>
       <div className="flex text-white z-10 w-full fixed h-[70px]">
         <img src={img1} className="object-cover w-full absolute h-full" />
         <div className="absolute justify-between z-40 bg-opacity-10 shadow-md p-3 flex items-center backdrop-blur-3xl w-full h-full">
-          <p className="text-[40px]  tablet:text-[30px]">
+          <p className="text-[35px]  tablet:text-[30px] smallTab:text-[15px]">
             Person's Name Dashboard
           </p>
           <div className="flex tablet:hidden items-center ml-5">
@@ -33,12 +34,11 @@ const DashboardHeader = () => {
               <Link to={`/profile/launch`}>Compaign</Link>
             </span>
           </div>
-          <button className="px-10 tablet:p-3 py-3 border-white border-[1px] rounded hover:scale-[1.09] transition-all duration-300">
-            <span className="tablet:hidden">logOut</span>
-            <AiOutlineLogout
-              onClick={onChangeToggle}
-              className="hidden tablet:flex"
-            />
+          <button className="px-10 tablet:hidden tablet:p-3 py-3 border-white border-[1px] rounded hover:scale-[1.09] transition-all duration-300">
+            <span className="">logOut</span>
+          </button>
+          <button onClick={onChangeToggle} className="px-10 hidden tablet:flex tablet:p-3 py-3 border-white border-[1px] rounded hover:scale-[1.09] transition-all duration-300">
+            <AiOutlineLogout className="" />
           </button>
         </div>
       </div>
