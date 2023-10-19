@@ -14,6 +14,7 @@ import Dashboard from "../components/alternate/Dashboard";
 import NewProfile from "../components/alternate/NewProfile";
 import Settings from "../components/alternate/Settings";
 import Projects from "../components/alternate/Projects";
+import Compaign from "../components/alternate/Compaign";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ export const mainRoute = createBrowserRouter([
         index: true,
         path: "/profile/projects",
         element: <Projects />,
+      },
+      {
+        index: true,
+        path: "/profile/launch",
+        element: <Compaign />,
       },
     ],
   },
